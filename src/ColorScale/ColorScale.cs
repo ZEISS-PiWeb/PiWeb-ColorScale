@@ -48,7 +48,7 @@ public sealed class ColorScale
 
 		Precision = 1;
 
-		Entries = entries?.OrderBy( entry => entry.Value ).ToArray() ?? [];
+		Entries = entries?.OrderBy( entry => entry.Value ).ToArray() ?? Array.Empty<ColorScaleEntry>();
 		_OrderedValueList = Entries.Select( entry => entry.Value ).ToArray();
 
 		if( _OrderedValueList.Distinct().Count() != _OrderedValueList.Length )
