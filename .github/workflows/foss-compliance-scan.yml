@@ -38,5 +38,5 @@ jobs:
         
           # Run scan and upload binaries.
           cd ${{ github.workspace }}/software_composition_analysis
-          bash <(curl -s -L https://detect.synopsys.com/detect7.sh) --blackduck.api.token=${{ secrets.BLACKDUCK_PAT }} --detect.project.version.name=$version --detect.source.path=${{ github.workspace }}/src/ColorScale/bin/Release/net8.0
+          bash <(curl -s -L https://detect.synopsys.com/detect7.sh) --blackduck.api.token=${{ secrets.BLACKDUCK_PAT }} --detect.project.version.name=$version --detect.source.path=${{ github.workspace }}/src/ColorScale/bin/Release/netstandard2.0
 
