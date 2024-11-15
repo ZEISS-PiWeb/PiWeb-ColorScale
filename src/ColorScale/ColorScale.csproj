@@ -2,7 +2,7 @@
     
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <LangVersion>12.0</LangVersion>
+        <LangVersion>10.0</LangVersion>
         <AssemblyName>Zeiss.PiWeb.ColorScale</AssemblyName>
         <RootNamespace>Zeiss.PiWeb.ColorScale</RootNamespace>
         <Copyright>Copyright © 2024 Carl Zeiss Industrielle Messtechnik GmbH</Copyright>
