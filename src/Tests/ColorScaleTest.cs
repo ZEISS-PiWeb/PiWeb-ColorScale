@@ -32,6 +32,16 @@ public class ColorScaleTest
 	}
 
 	[Test]
+	public void Test_Initialization_With_Duplicate_Entries()
+	{
+		Assert.That( () => new ColorScale( "", Color.FromRgb( 0, 0, 0 ), new[]
+		{
+			new ColorScaleEntry( 1, Color.FromRgb( 128, 0, 0 ), Color.FromRgb( 255, 0, 0 ) ),
+			new ColorScaleEntry( 1, Color.FromRgb( 255, 0, 0 ), Color.FromRgb( 0, 0, 255 ) ),
+		} ), Throws.ArgumentException );
+	}
+
+	[Test]
 	public void Test_Get_Color_With_Single_Entry()
 	{
 		var invalidColor = Color.FromRgb( 128, 128, 128 );
@@ -47,9 +57,9 @@ public class ColorScaleTest
 	{
 		var colorScale = new ColorScale( "foo", Color.FromRgb( 128, 128, 128 ), new[]
 		{
-			new ColorScaleEntry( 0, Color.FromRgb( 128, 0, 0 ), Color.FromRgb( 255, 0, 0 ) ),
+			new ColorScaleEntry( -1, Color.FromRgb( 128, 0, 0 ), Color.FromRgb( 255, 0, 0 ) ),
 			new ColorScaleEntry( 0, Color.FromRgb( 255, 0, 0 ), Color.FromRgb( 0, 0, 255 ) ),
-			new ColorScaleEntry( 0, Color.FromRgb( 0, 0, 255 ), Color.FromRgb( 0, 0, 128 ) )
+			new ColorScaleEntry( 1, Color.FromRgb( 0, 0, 255 ), Color.FromRgb( 0, 0, 128 ) )
 		} );
 		var stream = new MemoryStream();
 		var writer = new XmlTextWriter( stream, Encoding.UTF8 );
