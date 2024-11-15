@@ -39,8 +39,8 @@ public sealed class ColorScale
 	/// <param name="entries">The entries.</param>
 	/// <param name="interpolation">The interpolation mode.</param>
 	/// <exception cref="ArgumentException">Error creating color scale: Duplicate color entries (values) are not allowed.</exception>
-	/// <exception cref="System.ArgumentException">Error creating color scale: Duplicate color entries (values) are not allowed.</exception>
-	public ColorScale( string name, Color invalidColor, IEnumerable<ColorScaleEntry>? entries = null, ColorScaleInterpolation interpolation = ColorScaleInterpolation.HSV )
+	/// <exception cref="ArgumentException">Error creating color scale: Duplicate color entries (values) are not allowed.</exception>
+	public ColorScale( string name, Color invalidColor, IEnumerable<ColorScaleEntry> entries, ColorScaleInterpolation interpolation = ColorScaleInterpolation.HSV )
 	{
 		Name = name;
 		InvalidColor = invalidColor;
@@ -48,13 +48,16 @@ public sealed class ColorScale
 
 		Precision = 1;
 
-		Entries = entries?.OrderBy( entry => entry.Value ).ToArray() ?? Array.Empty<ColorScaleEntry>();
+		Entries = entries.OrderBy( entry => entry.Value ).ToArray();
+		if( Entries.Length == 0 )
+			throw new ArgumentException( "Error creating color scale: At least one entry must be specified.", nameof( Entries ) );
+
 		_OrderedValueList = Entries.Select( entry => entry.Value ).ToArray();
 
+		//Prevents division by zero in color interpolation.
 		if( _OrderedValueList.Distinct().Count() != _OrderedValueList.Length )
-		{
-			throw new ArgumentException( "Error creating color scale: Duplicate color entries (values) are not allowed." ); //Prevents division by zero in color interpolation.
-		}
+			throw new ArgumentException( "Error creating color scale: Duplicate color entries (values) are not allowed.", nameof( Entries ) );
+
 
 		_ColorSpans = new ColorSpan[ _OrderedValueList.Length - 1 ];
 		_HasConstantColors = true;
@@ -185,9 +188,9 @@ public sealed class ColorScale
 		writer.WriteAttributeString( "Interpolation", Interpolation.ToString() );
 		writer.WriteColorAttribute( "InvalidColor", InvalidColor );
 
-		if( Entries.Length == 0 ) 
+		if( Entries.Length == 0 )
 			return;
-		
+
 		writer.WriteStartElement( "Entries" );
 
 		foreach( var colorScaleEntry in Entries )
@@ -208,7 +211,7 @@ public sealed class ColorScale
 			if( _OrderedValueList[ i ] >= value )
 				return i;
 		}
-		
+
 		throw new InvalidOperationException( "Error calculating color value. Invalid value: " + value );
 	}
 

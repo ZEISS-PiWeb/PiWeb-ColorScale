@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorScale", "ColorScale\ColorScale.csproj", "{ACC0C1AA-1C49-4630-B900-03F7496E2045}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorScale.Tests", "Tests\ColorScale.Tests.csproj", "{13989EF4-9814-4E96-977C-C69D4232BD34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{ACC0C1AA-1C49-4630-B900-03F7496E2045}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACC0C1AA-1C49-4630-B900-03F7496E2045}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACC0C1AA-1C49-4630-B900-03F7496E2045}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13989EF4-9814-4E96-977C-C69D4232BD34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13989EF4-9814-4E96-977C-C69D4232BD34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13989EF4-9814-4E96-977C-C69D4232BD34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13989EF4-9814-4E96-977C-C69D4232BD34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
