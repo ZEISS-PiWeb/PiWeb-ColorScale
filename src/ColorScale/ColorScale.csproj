@@ -1,5 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-    
+
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <LangVersion>10.0</LangVersion>
@@ -13,11 +13,11 @@
     </PropertyGroup>
 
     <PropertyGroup Label="NuGet package specifications">
-        <ProductName>PiWeb Colorscale Library</ProductName>
+        <ProductName>PiWeb ColorScale Library</ProductName>
         <Description>
-            The PiWeb Colorscale provides colors for numeric values
+            The PiWeb ColorScale provides colors for numeric values
         </Description>
-        <PackageId>Zeiss.PiWeb.Colorscale</PackageId>
+        <PackageId>Zeiss.PiWeb.ColorScale</PackageId>
         <Version>1.0.0</Version>
         <PackageIcon>logo_128x128.png</PackageIcon>
         <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
@@ -26,12 +26,12 @@
         <RepositoryUrl>https://github.com/ZEISS-PiWeb/PiWeb-ColorScale.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
     </PropertyGroup>
-   
+
     <ItemGroup>
         <None Include="..\..\LICENSE.txt" Pack="true" PackagePath="LICENSE.txt"/>
         <None Include="..\..\img\logo_128x128.png" Pack="true" PackagePath="logo_128x128.png"/>
     </ItemGroup>
-    
+
 </Project>
 
 
