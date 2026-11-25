@@ -1,5 +1,7 @@
 # PiWeb-ColorScale
-A serializable color scale that returns colors for given numeric values
+
+| ![Zeiss IQS Logo](docs/logo_128x128.png) | A serializable color scale that returns colors for given numeric values. |
+|-|:-|
 
 ## Build and publish
 
